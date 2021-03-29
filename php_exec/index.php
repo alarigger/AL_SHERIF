@@ -16,11 +16,12 @@ img {
 </style>
 </head>
 <body>
-	Hello there!
+S H E R I F
 <br><br>
 	<a href='index.php?page=images'>IMAGES</a><br><br>
 	<a href='index.php?page=scene_list'>SCENES</a><br><br>
 	<a href='index.php?page=runscript'>SCRIPT</a><br><br>
+	<a href='index.php?page=videos'>VIDEOS</a><br><br>
 	
 <form id="form">
  <p>script_name<input id="script_name" type="text" name="script_name" /></p>
