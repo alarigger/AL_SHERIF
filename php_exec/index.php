@@ -8,36 +8,41 @@ $page = $_GET['page'];
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-img {
-  width:200px;
-  height:300px;
-}
-</style>
+<link rel="stylesheet" href="ui/sherif.css">
 </head>
 <body>
-S H E R I F
+<div id="banner">S H E R I F</div>
 <br><br>
 	<a href='index.php?page=images'>IMAGES</a><br><br>
-	<a href='index.php?page=scene_list'>SCENES</a><br><br>
-	<a href='index.php?page=runscript'>SCRIPT</a><br><br>
+	<a href='indcex.php?page=scene_list'>SCENES</a><br><br>
+	<a href='index.php?page=script_list'>SCRIPT</a><br><br>
 	<a href='index.php?page=videos'>VIDEOS</a><br><br>
 	
 <form id="form">
- <p>script_name<input id="script_name" type="text" name="script_name" /></p>
-  <p>selected scenes : 
+<p><?php include('pages/script_list.php');?></p>
+  <p>selected scenes : <br>
 	<?php
 	  if ($page!=false) {
 		  
 		  include('pages/'.$page.'.php');
 
 	  }
+	  
 	?>
+	 <?php include('pages/scene_list.php');?>
 	</p>
- <p><input type="submit" value="OK"></p>
+ <p><input type="submit" value="RUN" p>
 
 </form>
 
+<div id="feedback">
+
+...
+</div>
+<div id="status">
+...
+
+</div>
  <script src="lib/jquery.js"></script>
  <script>
 
@@ -51,6 +56,8 @@ $("#form").submit(function(e){ // On sélectionne le formulaire par son identifi
 	var selected_script = $("#script_name").val();
 	
 	var selected_scenes_paths = checkedScenes .join(",");
+	
+	
 	
 	console.log(selected_scenes_paths);
 
@@ -66,6 +73,9 @@ $("#form").submit(function(e){ // On sélectionne le formulaire par son identifi
            console.log(data_form);
            console.log(code_html);
            console.log(statut);
+		    $('#status').html(statut);
+		    $('#feedback').html(code_html);
+		   
        }
     });
 

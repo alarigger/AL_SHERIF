@@ -7,19 +7,14 @@
 		
 		$scene_paths_array = explode(",",$scene_paths_str);
 		
-		print_r($scene_paths_array);
-		
 		$program_path = '"C:\Program Files (x86)\Toon Boom Animation\Toon Boom Harmony 17 Premium\win64\bin\HarmonyPremium.exe"';
 		
 		
 		foreach($scene_paths_array as $scene_path){
-			
 
 			$command_string = $program_path.' '.$scene_path.' -batch';
 			
-			echo $command_string;	
-			
-			$command = exec ($command_string);
+			$command = exec($command_string);
 			
 			echo $command;		
 			
